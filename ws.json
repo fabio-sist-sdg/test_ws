@@ -70,6 +70,10 @@
 			"description": "Returns the Response Body.",
 			"body": "return this.response_body;"
 		}
+		"callAPI": {
+			"description": "Returns the Response Body.",
+			"body": "return this.callWS(this.URL);"
+		}
 	},
 	"events": {
 		"onClick": {

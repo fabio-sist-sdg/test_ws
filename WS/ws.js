@@ -17,7 +17,7 @@
 				this.$URL = changedProperties["URL"];
 			}
 			this.callWS(this.$URL);
-			this.$response_body = 'Pippo';
+			//this.$response_body = 'Pippo';
 			//this.$response_body = this.callWS(this.$URL);
         }
         callWS(t) {
@@ -28,6 +28,7 @@
 				if (!response.ok) {
 					throw new Error("HTTP status " + response.status);
 				}
+				console.log(response.json());
 				return response.json();
 			});
 			}else{
