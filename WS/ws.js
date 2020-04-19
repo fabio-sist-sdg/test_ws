@@ -18,6 +18,8 @@
 				this.$URL = changedProperties["URL"];
 			}
 			this.callWS(this.$URL);
+			changedProperties["response_body"] = 'Pippo';
+			this._props = { ...this._props, ...changedProperties };
 			//this.$response_body = 'Pippo';
 			//this.$response_body = this.callWS(this.$URL);
         }
