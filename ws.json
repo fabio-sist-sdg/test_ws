@@ -1,0 +1,79 @@
+{
+	"id": "com.sdg.ws",
+	"version": "1.0.0",
+	"name": "Web Service",
+	"description": "Web Service",
+	"newInstancePrefix": "WS",
+	"icon": "https://fabio-sist-sdg.github.io/test_ws/WS/icon.png",
+	"vendor": "SDG Group",
+	"eula": "EULA",
+	"license": "1.0",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "com-sdg-ws",
+			"url": "https://fabio-sist-sdg.github.io/test_ws/WS/ws.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		},
+		{
+			"kind": "styling",
+			"tag": "com-sdg-ws-sps",
+			"url": "https://fabio-sist-sdg.github.io/test_ws/WS/ws_sps.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		},
+		{
+			"kind": "builder",
+			"tag": "com-sdg-ws-bps",
+			"url": "https://fabio-sist-sdg.github.io/test_ws/WS/ws_bps.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		}
+	],
+	"properties": {
+		"URL": {
+			"type": "string",
+			"description": "Web Service URL",
+			"default": ""
+		},
+		"response_code": {
+			"type": "string",
+			"description": "Response Code",
+			"default": ""
+		},
+		"response_body": {
+			"type": "string",
+			"description": "Response Body",
+			"default": ""
+		}
+	},
+	"methods": {	
+		"setURL": {
+			"description": "Sets the Web Service URL.",
+			"parameters": [
+				{
+					"name": "newURL",
+					"type": "string",
+					"description": "The new Web Service URL"
+				}
+			],
+			"body": "this.URL = newURL;"
+		},
+		"getResponseCode": {
+			"returnType": "string",
+			"description": "Returns the Response Code.",
+			"body": "return this.response_code;"
+		},
+		"getResponseBody": {
+			"returnType": "string",
+			"description": "Returns the Response Body.",
+			"body": "return this.response_body;"
+		}
+	},
+	"events": {
+		"onClick": {
+			"description": "Called when the user clicks the ws."
+		}
+	}
+}
