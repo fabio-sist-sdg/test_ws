@@ -10,7 +10,8 @@
             }), this._props = {}
         }
         onCustomWidgetBeforeUpdate(changedProperties) {
-			//this._props = { ...this._props, ...changedProperties };
+			this._props = { ...this._props, ...changedProperties };
+			console.log(this._props);
 		}
         onCustomWidgetAfterUpdate(changedProperties) {
 			if ("URL" in changedProperties) {
@@ -28,7 +29,6 @@
 				if (!response.ok) {
 					throw new Error("HTTP status " + response.status);
 				}
-				console.log(this._props);
 				//console.log(response.json());
 				return response.json();
 			});
