@@ -7863,21 +7863,28 @@
                 t = new Event("onClick"), this.dispatchEvent(t)
             }), this._props = {}
         }
-        onCustomWidgetBeforeUpdate(t) {}
-        onCustomWidgetAfterUpdate(t) {
-            "URL" in t && (this._props.URL = t.URL);
-			this.callWS(this.$URL, this._props);
+        onCustomWidgetBeforeUpdate(changedProperties) {
+			this._props = { ...this._props, ...changedProperties };
+		}
+        onCustomWidgetAfterUpdate(changedProperties) {
+			if ("URL" in changedProperties) {
+				this.$URL = changedProperties["URL"];
+			}
+			this.callWS(this.$URL);
         }
-        callWS(t, e) {
-			fetch('https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=439d4b804bc8187953eb36d2a8c26a02')
+        callWS(t) {
+			if (t!= ''){
+							fetch(t)
 			.then( response => {
-				this.$response_code = response.status;
-				this.$response_code = response.json;
 				return response.json();
 			})
 			.then( users => {
 				console.log(users);
 			});
+			}else{
+				console.log('NO WS');
+			}
+			
         }
     })
 }();
