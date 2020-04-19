@@ -7870,16 +7870,17 @@
 			if ("URL" in changedProperties) {
 				this.$URL = changedProperties["URL"];
 			}
-			this.callWS(this.$URL);
+			this.$response_body = this.callWS(this.$URL);
         }
         callWS(t) {
 			if (t!= ''){
-							fetch(t)
-			.then( response => {
+				fetch(t)
+				.then( function(response) {
+					console.log(response.status); // Will show you the status
+				if (!response.ok) {
+					throw new Error("HTTP status " + response.status);
+				}
 				return response.json();
-			})
-			.then( users => {
-				console.log(users);
 			});
 			}else{
 				console.log('NO WS');
