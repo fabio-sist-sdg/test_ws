@@ -17,27 +17,20 @@
 			if ("URL" in changedProperties) {
 				this.$URL = changedProperties["URL"];
 			}
-			this.callWS(this.$URL);
-			changedProperties["response_body"] = 'Pippo';
-			this._props = { ...this._props, ...changedProperties };
-			//this.$response_body = 'Pippo';
-			//this.$response_body = this.callWS(this.$URL);
-        }
-        callWS(t) {
-			if (t!= ''){
-				fetch(t)
-				.then( function(response) {
-					console.log(response.status); // Will show you the status
-				if (!response.ok) {
-					throw new Error("HTTP status " + response.status);
+			if (this.$URL!= ''){
+				let response = fetch(this.$URL);
+				if (response.ok) { // if HTTP-status is 200-299
+					// get the response body (the method explained below)
+					let json = response.json();
+				} else {
+					alert("HTTP-Error: " + response.status);
 				}
-				//console.log(response.json());
-				return response.json();
-			});
 			}else{
 				console.log('NO WS');
 			}
-			
+			changedProperties["response_body"] = json;
+			changedProperties["response_code"] = response.status;
+			this._props = { ...this._props, ...changedProperties };
         }
     })
 }();
