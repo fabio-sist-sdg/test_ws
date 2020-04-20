@@ -25,6 +25,7 @@
 					changedProperties["response_code"] = response.status;
 					console.log('Changed Properties:');
 					console.log(changedProperties);
+					this._props = { ...this._props, ...changedProperties };
 					return response.json();
 				})
 				.then( users => {
@@ -33,11 +34,12 @@
 					changedProperties["response_body"] = users;
 					console.log('Changed Properties:');
 					console.log(changedProperties);
+					this._props = { ...this._props, ...changedProperties };
 				});
 			}else{
 				console.log('NO WS');
 			}
-			this._props = { ...this._props, ...changedProperties };
+			//this._props = { ...this._props, ...changedProperties };
 			console.log('Properties:');
 			console.log(this._props);
         }
