@@ -19,14 +19,11 @@
 			}
 			if (this.$URL != ''){
 				let response = fetch(this.$URL);
-				if (response.ok) { // if HTTP-status is 200-299
-					// get the response body (the method explained below)
-					let json = response.json();
-					changedProperties["response_body"] = json;
-					changedProperties["response_code"] = response.status;
-				} else {
-					alert("HTTP-Error: " + response.status);
-				}
+				console.log(response.status);
+				// get the response body (the method explained below)
+				let json = response.json();
+				changedProperties["response_body"] = json;
+				changedProperties["response_code"] = response.status;
 			}else{
 				console.log('NO WS');
 			}
