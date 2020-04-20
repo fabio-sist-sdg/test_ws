@@ -40,12 +40,12 @@
 		"response_code": {
 			"type": "string",
 			"description": "Response Code",
-			"default": ""
+			"default": "Status"
 		},
 		"response_body": {
 			"type": "string",
 			"description": "Response Body",
-			"default": ""
+			"default": "Body"
 		}
 	},
 	"methods": {	
