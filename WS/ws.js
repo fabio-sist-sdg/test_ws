@@ -26,7 +26,7 @@
 					throw new Error("HTTP status " + response.status);
 				}
 				console.log(response.json());
-				changedProperties["response_body"] = json;
+				changedProperties["response_body"] = response.json();
 				return response.json();
 			});
 			}else{
