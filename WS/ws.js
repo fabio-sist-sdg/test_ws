@@ -32,6 +32,7 @@
 				console.log('NO WS');
 			}
 			this._props = { ...this._props, ...changedProperties };
+			console.log(this._props);
         }
     })
 }();
