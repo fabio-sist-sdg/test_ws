@@ -20,18 +20,25 @@
 			if (this.$URL != ''){
 				fetch(this.$URL)
 				.then( response => {
+					console.log('Response Status:');
 					console.log(response.status); // Will show you the status
 					changedProperties["response_code"] = response.status;
+					console.log('Changed Properties:');
+					console.log(changedProperties);
 					return response.json();
 				})
 				.then( users => {
+					console.log('Body:');
 					console.log(users);
 					changedProperties["response_body"] = users;
+					console.log('Changed Properties:');
+					console.log(changedProperties);
 				});
 			}else{
 				console.log('NO WS');
 			}
 			this._props = { ...this._props, ...changedProperties };
+			console.log('Properties:');
 			console.log(this._props);
         }
     })
